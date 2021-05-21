@@ -1,0 +1,92 @@
+Lexical Analyzer:
+---------------
+No Lexical Errors Found.
+
+Tokens:
+Lexeme: if		Type: keyword
+Lexeme: (		Type: delimiter
+Lexeme: g		Type: identifier
+Lexeme: >		Type: cond-operator
+Lexeme: 5		Type: integer
+Lexeme: +		Type: operator
+Lexeme: 0		Type: integer
+Lexeme: )		Type: delimiter
+Lexeme: {		Type: delimiter
+Lexeme: x		Type: identifier
+Lexeme: =		Type: assign-operator
+Lexeme: 3		Type: integer
+Lexeme: ;		Type: delimiter
+Lexeme: if		Type: keyword
+Lexeme: (		Type: delimiter
+Lexeme: a		Type: identifier
+Lexeme: <		Type: cond-operator
+Lexeme: 3		Type: integer
+Lexeme: )		Type: delimiter
+Lexeme: {		Type: delimiter
+Lexeme: if		Type: keyword
+Lexeme: (		Type: delimiter
+Lexeme: s		Type: identifier
+Lexeme: <=		Type: double-operator
+Lexeme: 4		Type: integer
+Lexeme: )		Type: delimiter
+Lexeme: {		Type: delimiter
+Lexeme: x		Type: identifier
+Lexeme: =		Type: assign-operator
+Lexeme: 8		Type: integer
+Lexeme: +		Type: operator
+Lexeme: 4		Type: integer
+Lexeme: ;		Type: delimiter
+Lexeme: }		Type: delimiter
+Lexeme: }		Type: delimiter
+Lexeme: }		Type: delimiter
+
+Parser:
+---------------
+No Parser Errors Found.
+
+Code Optimizer:
+---------------
+if ( g > 5 ) {
+x = 3 ;
+if ( a < 3 ) {
+if ( s <= 4 ) {
+x = 8 + 4 ;
+}
+}
+}
+
+Code Generator:
+---------------
+Location        Variable        Op Code         Identifier     
+0000                            LDA             g              
+0003                            COMP            NUM_5          
+0006                            JGT             TRUE           
+0009                            JLT             FALSE          
+000c                            JEQ             FALSE          
+000f            TRUE            LDA             NUM_3          
+0012                            STA             x              
+0015                            LDA             a              
+0018                            COMP            NUM_3          
+001b                            JLT             TRUE           
+001e                            JGT             FALSE          
+0021                            JEQ             FALSE          
+0024            TRUE            LDA             s              
+0027                            COMP            NUM_4          
+002a                            JLT             TRUE           
+002d                            JEQ             TRUE           
+0030                            JGT             FALSE          
+0033            TRUE            LDA             NUM_8          
+0036                            ADD             NUM_4          
+0039                            STA             VAR_1          
+003c                            LDA             VAR_1          
+003f                            STA             x              
+0042            FALSE                                          
+0045            s               RESW            1              
+0048            a               RESW            1              
+004b            g               RESW            1              
+004e            x               RESW            1              
+0051            VAR_1           RESW            1              
+0054            NUM_4           WORD            4              
+0057            NUM_5           WORD            5              
+005a            NUM_8           WORD            8              
+005d            NUM_3           WORD            3              

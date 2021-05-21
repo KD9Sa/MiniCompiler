@@ -1,0 +1,42 @@
+#   <program>		::= <if> <program>
+						| <statement> <program>
+						|
+
+#   <statement>		::= <identifier> = <expression> ;
+
+#   <expression>	::= <expression> + <term> 
+						| <expression> - <term> 
+						| <term>
+
+#   <term>			::= <term> * <factor> 
+						| <term> / <factor> 
+						| <factor>
+
+#   <factor>		::= <identifier> 
+						| <integer> 
+						| ( <expression> )
+
+#   <if>			::= if ( <comparison-exp> ) { <program> } 
+						| if ( <comparison-exp> ) { <program> } else { <program> }
+
+#   <comparison-exp>::= <expression> <cond-opertaor> <expression>
+
+#   <cond-operator>	::= >
+						| <
+						| >=
+						| <=
+						| ==
+
+#   <identifier>	::= <character><id-body> 
+
+#   <id-body>		::= <character><id-body>
+						| <integer><id-body>
+						|
+
+#   <integer>		::= <number> 
+						| <integer><number>
+
+#   <number>		::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 
+
+#   <character>		::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o 
+						| p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
